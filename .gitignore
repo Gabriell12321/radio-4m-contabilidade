@@ -1,0 +1,40 @@
+# Arquivos temporários
+*.tmp
+*.temp
+temp.txt
+
+# Logs
+*.log
+
+# Arquivos de backup
+*_backup.html
+*_backup_problematico.html
+
+# Arquivos de teste
+teste-*.html
+teste-*.js
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração local
+.env
+config.local.js
+
+# Dependências (se houver)
+node_modules/
+npm-debug.log*
+
+# Arquivos de build
+dist/
+build/
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de cache
+.cache/ 

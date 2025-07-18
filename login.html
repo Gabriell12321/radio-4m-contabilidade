@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Admin Rádio Alo Voce</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1db954;
+            --secondary: #191414;
+            --accent: #1db954;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #242424;
+            --border: #333333;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --gradient-primary: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Login Container */
+        .login-container {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 4px 8px rgba(29, 185, 84, 0.3));
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Styles */
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            padding-left: 3rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            cursor: pointer;
+            margin-top: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(29, 185, 84, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(220, 53, 69, 0.2);
+            color: var(--danger);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--danger);
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Security Notice */
+        .security-notice {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(23, 162, 184, 0.2);
+            border: 1px solid #17a2b8;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+
+        /* Success Animation */
+        .success-animation {
+            display: none;
+            color: var(--success);
+            font-size: 2rem;
+            animation: successPulse 0.6s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">
+                <img src="logosemfundo.png" alt="Rádio Alo Voce" class="logo-img">
+                <div class="logo-text">Admin Panel</div>
+            </div>
+            <div class="subtitle">Rádio Alo Voce - Acesso Restrito</div>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText">Usuário ou senha incorretos!</span>
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label class="form-label">Usuário</label>
+                <div style="position: relative;">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" class="form-input" id="username" placeholder="Digite seu usuário" required autocomplete="username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Senha</label>
+                <div style="position: relative;">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" class="form-input" id="password" placeholder="Digite sua senha" required autocomplete="current-password">
+                    <i class="fas fa-eye password-toggle" id="passwordToggle" onclick="togglePassword()"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                <div class="spinner" id="spinner"></div>
+                <i class="fas fa-sign-in-alt" id="loginIcon"></i>
+                <span id="loginText">Entrar no Admin</span>
+                <i class="fas fa-check success-animation" id="successIcon"></i>
+            </button>
+        </form>
+
+        <div class="security-notice">
+            <i class="fas fa-shield-alt"></i>
+            <strong>Área Protegida:</strong> Acesso autorizado apenas para administradores.
+            Todas as ações são registradas para segurança.
+        </div>
+    </div>
+
+    <script>
+        // Credenciais de acesso
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: '6JM7!b98Vtr#!'
+        };
+
+        // Verificar se já está logado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isLoggedIn()) {
+                window.location.href = 'admin.html';
+            }
+        });
+
+        // Toggle da senha
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash password-toggle';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye password-toggle';
+            }
+        }
+
+        // Verificar se está logado
+        function isLoggedIn() {
+            const session = localStorage.getItem('adminSession');
+            if (!session) return false;
+            
+            try {
+                const sessionData = JSON.parse(session);
+                const now = new Date().getTime();
+                
+                // Sessão expira em 24 horas
+                if (now - sessionData.loginTime > 24 * 60 * 60 * 1000) {
+                    localStorage.removeItem('adminSession');
+                    return false;
+                }
+                
+                return sessionData.isAuthenticated;
+            } catch {
+                localStorage.removeItem('adminSession');
+                return false;
+            }
+        }
+
+        // Mostrar erro
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            
+            errorText.textContent = message;
+            errorDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Fazer login
+        function performLogin(username, password) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                        // Criar sessão
+                        const sessionData = {
+                            isAuthenticated: true,
+                            username: username,
+                            loginTime: new Date().getTime(),
+                            ip: 'local' // Em produção, capturar IP real
+                        };
+                        
+                        localStorage.setItem('adminSession', JSON.stringify(sessionData));
+                        resolve({ success: true });
+                    } else {
+                        resolve({ success: false, message: 'Usuário ou senha incorretos!' });
+                    }
+                }, 1500); // Simular delay de verificação
+            });
+        }
+
+        // Handler do formulário
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const spinner = document.getElementById('spinner');
+            const loginIcon = document.getElementById('loginIcon');
+            const loginText = document.getElementById('loginText');
+            const successIcon = document.getElementById('successIcon');
+            
+            // Validações básicas
+            if (!username || !password) {
+                showError('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            // Estado de carregamento
+            loginBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            loginIcon.style.display = 'none';
+            loginText.textContent = 'Verificando...';
+            
+            try {
+                const result = await performLogin(username, password);
+                
+                if (result.success) {
+                    // Sucesso
+                    spinner.style.display = 'none';
+                    successIcon.style.display = 'inline-block';
+                    loginText.textContent = 'Acesso Autorizado!';
+                    loginBtn.style.background = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'admin.html';
+                    }, 1000);
+                } else {
+                    // Erro
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                // Reset do botão
+                loginBtn.disabled = false;
+                spinner.style.display = 'none';
+                loginIcon.style.display = 'inline-block';
+                loginText.textContent = 'Entrar no Admin';
+                
+                showError(error.message);
+                
+                // Limpar senha por segurança
+                document.getElementById('password').value = '';
+            }
+        });
+
+        // Logout (para uso externo)
+        window.adminLogout = function() {
+            localStorage.removeItem('adminSession');
+            window.location.href = 'login.html';
+        };
+
+        // Proteção contra ataques de força bruta (básico)
+        let loginAttempts = 0;
+        const maxAttempts = 5;
+        const lockoutTime = 15 * 60 * 1000; // 15 minutos
+
+        function checkBruteForce() {
+            const attempts = localStorage.getItem('loginAttempts');
+            const lastAttempt = localStorage.getItem('lastLoginAttempt');
+            
+            if (attempts && lastAttempt) {
+                const now = new Date().getTime();
+                const timeDiff = now - parseInt(lastAttempt);
+                
+                if (parseInt(attempts) >= maxAttempts && timeDiff < lockoutTime) {
+                    const remainingTime = Math.ceil((lockoutTime - timeDiff) / 60000);
+                    showError(`Muitas tentativas incorretas. Tente novamente em ${remainingTime} minutos.`);
+                    document.getElementById('loginBtn').disabled = true;
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        // Log de acesso (para auditoria)
+        function logAccess(success, username) {
+            const logs = JSON.parse(localStorage.getItem('accessLogs') || '[]');
+            logs.push({
+                timestamp: new Date().toISOString(),
+                success: success,
+                username: username,
+                ip: 'local'
+            });
+            
+            // Manter apenas os últimos 100 logs
+            if (logs.length > 100) {
+                logs.splice(0, logs.length - 100);
+            }
+            
+            localStorage.setItem('accessLogs', JSON.stringify(logs));
+        }
+
+        // Enter para submeter
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginForm').requestSubmit();
+            }
+        });
+
+        console.log('🔐 Sistema de Login Carregado - Rádio Alo Voce Admin');
+    </script>
+</body>
+</html> 

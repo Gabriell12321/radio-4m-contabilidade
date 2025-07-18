@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncie na Rádio Alo Voce - Portal Empresas</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1db954;
+            --secondary: #191414;
+            --accent: #1db954;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #242424;
+            --border: #333333;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --gradient-primary: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo:hover .logo-text {
+            text-shadow: 0 0 8px rgba(29, 185, 84, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(29, 185, 84, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(29, 185, 84, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .price-details {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.4);
+        }
+
+        /* Pricing Table */
+        .pricing {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-table {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .table td {
+            color: var(--text-primary);
+        }
+
+        .table tr:nth-child(even) {
+            background: rgba(29, 185, 84, 0.05);
+        }
+
+        .price-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+        }
+
+        /* Form Styles */
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-file {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-file:hover {
+            border-color: var(--accent);
+            background: rgba(29, 185, 84, 0.1);
+        }
+
+        .form-file input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .table th,
+            .table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="radio.html" class="logo">
+                <img src="logosemfundo.png" alt="Rádio Alo Voce" class="logo-img">
+                <span class="logo-text">Rádio Alo Voce</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#precos" class="nav-link">Preços</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Anuncie na Rádio Alo Voce</h1>
+            <p class="hero-subtitle">Alcance milhares de ouvintes com suas propagandas e notícias. Preços acessíveis, resultados garantidos!</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Ouvintes Diários</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Transmissão</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">Escolha a melhor forma de divulgar sua empresa</p>
+        
+        <div class="services-grid">
+            <!-- Propaganda -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="service-title">Propagandas de Áudio</h3>
+                <p class="service-description">
+                    Suas propagandas tocam automaticamente durante a programação. 
+                    Upload do áudio, aprovação rápida e resultados imediatos.
+                </p>
+                <div class="price-tag">A partir de R$ 150</div>
+                <div class="price-details">15 segundos - Horário comercial</div>
+                <button class="service-btn" onclick="openModal('propagandaModal')">
+                    <i class="fas fa-play"></i>
+                    Solicitar Propaganda
+                </button>
+            </div>
+
+            <!-- Notícias -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h3 class="service-title">Notícias Patrocinadas</h3>
+                <p class="service-description">
+                    Suas notícias são lidas ao vivo pelo locutor. 
+                    Ideal para lançamentos, promoções e eventos especiais.
+                </p>
+                <div class="price-tag">A partir de R$ 100</div>
+                <div class="price-details">30 segundos - 3x por dia</div>
+                <button class="service-btn" onclick="openModal('noticiaModal')">
+                    <i class="fas fa-newspaper"></i>
+                    Enviar Notícia
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precos" class="pricing">
+        <h2 class="section-title">Tabela de Preços</h2>
+        <p class="section-subtitle">Preços justos e transparentes para todos os tipos de empresa</p>
+        
+        <div class="pricing-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Duração</th>
+                        <th>Horário Comercial<br><small>(09:00 - 17:00)</small></th>
+                        <th>Horário Nobre<br><small>(17:00 - 22:00)</small></th>
+                        <th>Fim de Semana<br><small>(Sáb/Dom)</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>15 segundos</strong></td>
+                        <td class="price-highlight">R$ 150,00</td>
+                        <td class="price-highlight">R$ 200,00</td>
+                        <td class="price-highlight">R$ 180,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>30 segundos</strong></td>
+                        <td class="price-highlight">R$ 250,00</td>
+                        <td class="price-highlight">R$ 350,00</td>
+                        <td class="price-highlight">R$ 300,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>45 segundos</strong></td>
+                        <td class="price-highlight">R$ 350,00</td>
+                        <td class="price-highlight">R$ 450,00</td>
+                        <td class="price-highlight">R$ 400,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>60 segundos</strong></td>
+                        <td class="price-highlight">R$ 500,00</td>
+                        <td class="price-highlight">R$ 650,00</td>
+                        <td class="price-highlight">R$ 550,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center; color: var(--text-secondary);">
+            <p><strong>Notícias Patrocinadas:</strong> R$ 100 (simples) | R$ 200 (padrão) | R$ 350 (premium)</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Rádio Alo Voce</div>
+            <p class="footer-text">Sua parceira ideal para divulgar sua empresa no rádio</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(11) 9999-9999</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contato@radioalovoce.com.br</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>São Paulo, SP</span>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2rem;">
+                © 2024 Rádio Alo Voce. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal Propaganda -->
+    <div id="propagandaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Solicitar Propaganda</h3>
+                <button class="close-btn" onclick="closeModal('propagandaModal')">&times;</button>
+            </div>
+            
+            <form id="propagandaForm">
+                <!-- Dados da Empresa -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-building"></i>
+                        Dados da Empresa
+                    </h4>
+                    <div class="form-group">
+                        <label class="form-label">Nome da Empresa *</label>
+                        <input type="text" class="form-input" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CNPJ/CPF</label>
+                        <input type="text" class="form-input" name="documento" placeholder="00.000.000/0000-00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ramo de Atividade *</label>
+                        <select class="form-input" name="ramo" required>
+                            <option value="">Selecione...</option>
+                            <option value="alimentacao">Alimentação</option>
+                            <option value="automotivo">Automotivo</option>
+                            <option value="beleza">Beleza e Estética</option>
+                            <option value="construcao">Construção</option>
+                            <option value="educacao">Educação</option>
+                            <option value="farmacia">Farmácia/Saúde</option>
+                            <option value="moda">Moda e Vestuário</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="supermercado">Supermercado</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dados da Propaganda -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-bullhorn"></i>
+                        Dados da Propaganda
+                    </h4>
+                    <div class="form-group">
+                        <label class="form-label">Duração Desejada *</label>
+                        <select class="form-input" name="duracao" required onchange="calcularPreco()">
+                            <option value="">Selecione...</option>
+                            <option value="15">15 segundos</option>
+                            <option value="30">30 segundos</option>
+                            <option value="45">45 segundos</option>
+                            <option value="60">60 segundos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Horário Preferencial *</label>
+                        <select class="form-input" name="horario" required onchange="calcularPreco()">
+                            <option value="">Selecione...</option>
+                            <option value="comercial">Comercial (09:00 - 17:00)</option>
+                            <option value="nobre">Nobre (17:00 - 22:00)</option>
+                            <option value="weekend">Fim de Semana</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Período de Veiculação *</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <input type="date" class="form-input" name="dataInicio" required>
+                            <input type="date" class="form-input" name="dataFim" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Arquivo de Áudio *</label>
+                        <div class="form-file" onclick="document.getElementById('audioFile').click()">
+                            <input type="file" id="audioFile" name="arquivo" accept="audio/*" required>
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="upload-text">
+                                <strong>Clique para fazer upload</strong><br>
+                                Formatos aceitos: MP3, WAV (máx: 10MB)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-user"></i>
+                        Contato
+                    </h4>
+                    <div class="form-group">
+                        <label class="form-label">Nome do Responsável *</label>
+                        <input type="text" class="form-input" name="responsavel" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefone/WhatsApp *</label>
+                        <input type="tel" class="form-input" name="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+
+                <!-- Valor Total -->
+                <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Valor Total:</div>
+                    <div id="valorTotal" style="font-size: 2rem; font-weight: 800; color: var(--accent);">R$ 0,00</div>
+                </div>
+
+                <button type="submit" class="service-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Solicitação
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Notícia -->
+    <div id="noticiaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Enviar Notícia Patrocinada</h3>
+                <button class="close-btn" onclick="closeModal('noticiaModal')">&times;</button>
+            </div>
+            
+            <form id="noticiaForm">
+                <!-- Dados da Empresa -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-building"></i>
+                        Dados da Empresa
+                    </h4>
+                    <div class="form-group">
+                        <label class="form-label">Nome da Empresa *</label>
+                        <input type="text" class="form-input" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefone *</label>
+                        <input type="tel" class="form-input" name="telefone" required>
+                    </div>
+                </div>
+
+                <!-- Dados da Notícia -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-newspaper"></i>
+                        Dados da Notícia
+                    </h4>
+                    <div class="form-group">
+                        <label class="form-label">Título da Notícia *</label>
+                        <input type="text" class="form-input" name="titulo" placeholder="Ex: Nova loja inaugura no centro da cidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Conteúdo da Notícia *</label>
+                        <textarea class="form-input form-textarea" name="conteudo" placeholder="Escreva aqui o conteúdo da notícia que será lida no ar..." required maxlength="500"></textarea>
+                        <small style="color: var(--text-secondary);">Máximo: 500 caracteres</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tipo de Pacote *</label>
+                        <select class="form-input" name="pacote" required onchange="calcularPrecoNoticia()">
+                            <option value="">Selecione...</option>
+                            <option value="simples">Simples - R$ 100 (3x por dia)</option>
+                            <option value="padrao">Padrão - R$ 200 (5x por dia)</option>
+                            <option value="premium">Premium - R$ 350 (8x por dia)</option>
+                            <option value="urgente">Urgente - R$ 250 (imediato)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Data de Publicação Desejada *</label>
+                        <input type="date" class="form-input" name="dataPublicacao" required>
+                    </div>
+                </div>
+
+                <!-- Valor Total -->
+                <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Valor Total:</div>
+                    <div id="valorTotalNoticia" style="font-size: 2rem; font-weight: 800; color: var(--accent);">R$ 0,00</div>
+                </div>
+
+                <button type="submit" class="service-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Notícia
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tabela de preços
+        const precosPropaganda = {
+            '15': { comercial: 150, nobre: 200, weekend: 180 },
+            '30': { comercial: 250, nobre: 350, weekend: 300 },
+            '45': { comercial: 350, nobre: 450, weekend: 400 },
+            '60': { comercial: 500, nobre: 650, weekend: 550 }
+        };
+
+        const precosNoticia = {
+            simples: 100,
+            padrao: 200,
+            premium: 350,
+            urgente: 250
+        };
+
+        // Funções de modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Calcular preço da propaganda
+        function calcularPreco() {
+            const duracao = document.querySelector('select[name="duracao"]').value;
+            const horario = document.querySelector('select[name="horario"]').value;
+            const valorElement = document.getElementById('valorTotal');
+
+            if (duracao && horario) {
+                const preco = precosPropaganda[duracao][horario];
+                valorElement.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+            } else {
+                valorElement.textContent = 'R$ 0,00';
+            }
+        }
+
+        // Calcular preço da notícia
+        function calcularPrecoNoticia() {
+            const pacote = document.querySelector('select[name="pacote"]').value;
+            const valorElement = document.getElementById('valorTotalNoticia');
+
+            if (pacote) {
+                const preco = precosNoticia[pacote];
+                valorElement.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+            } else {
+                valorElement.textContent = 'R$ 0,00';
+            }
+        }
+
+        // Envio do formulário de propaganda
+        document.getElementById('propagandaForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const dadosPropaganda = {
+                empresa: formData.get('empresa'),
+                documento: formData.get('documento'),
+                ramo: formData.get('ramo'),
+                duracao: formData.get('duracao'),
+                horario: formData.get('horario'),
+                dataInicio: formData.get('dataInicio'),
+                dataFim: formData.get('dataFim'),
+                responsavel: formData.get('responsavel'),
+                email: formData.get('email'),
+                telefone: formData.get('telefone'),
+                arquivo: formData.get('arquivo').name,
+                status: 'pendente',
+                dataSolicitacao: new Date().toISOString()
+            };
+
+            // Salvar no localStorage (simulação)
+            let propagandas = JSON.parse(localStorage.getItem('radioAloVoce_solicitacoes_propagandas') || '[]');
+            propagandas.push(dadosPropaganda);
+            localStorage.setItem('radioAloVoce_solicitacoes_propagandas', JSON.stringify(propagandas));
+
+            alert('Solicitação enviada com sucesso! Entraremos em contato em até 24 horas.');
+            closeModal('propagandaModal');
+            e.target.reset();
+            document.getElementById('valorTotal').textContent = 'R$ 0,00';
+        });
+
+        // Envio do formulário de notícia
+        document.getElementById('noticiaForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const dadosNoticia = {
+                empresa: formData.get('empresa'),
+                email: formData.get('email'),
+                telefone: formData.get('telefone'),
+                titulo: formData.get('titulo'),
+                conteudo: formData.get('conteudo'),
+                pacote: formData.get('pacote'),
+                dataPublicacao: formData.get('dataPublicacao'),
+                status: 'pendente',
+                dataSolicitacao: new Date().toISOString()
+            };
+
+            // Salvar no localStorage (simulação)
+            let noticias = JSON.parse(localStorage.getItem('radioAloVoce_solicitacoes_noticias') || '[]');
+            noticias.push(dadosNoticia);
+            localStorage.setItem('radioAloVoce_solicitacoes_noticias', JSON.stringify(noticias));
+
+            alert('Notícia enviada com sucesso! Será analisada e publicada conforme aprovação.');
+            closeModal('noticiaModal');
+            e.target.reset();
+            document.getElementById('valorTotalNoticia').textContent = 'R$ 0,00';
+        });
+
+        // Fechar modal clicando fora
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Navegação suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Atualizar datas mínimas
+        document.addEventListener('DOMContentLoaded', () => {
+            const hoje = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                input.min = hoje;
+            });
+        });
+    </script>
+</body>
+</html> 
