@@ -527,6 +527,15 @@ class AdminSystem {
             vagasAdmin.loadVagas();
         }
         
+        // Adicionar notificação de atualização
+        if (window.notificationSystem) {
+            window.notificationSystem.addNotification(
+                'Dashboard Atualizado',
+                'Todas as estatísticas e dados foram atualizados com sucesso.',
+                'success'
+            );
+        }
+        
         console.log('✅ Dashboard atualizado com sucesso!');
     }
 
@@ -549,6 +558,15 @@ class AdminSystem {
         this.loadPropagandas();
         this.updateStats();
         
+        // Adicionar notificação
+        if (window.notificationSystem) {
+            window.notificationSystem.addNotification(
+                'Nova Propaganda',
+                `Nova propaganda "${dadosPropaganda.empresa}" foi adicionada e aguarda aprovação.`,
+                'info'
+            );
+        }
+        
         alert('Propaganda adicionada com sucesso!');
     }
 
@@ -569,6 +587,15 @@ class AdminSystem {
         
         this.loadNoticias();
         this.updateStats();
+        
+        // Adicionar notificação
+        if (window.notificationSystem) {
+            window.notificationSystem.addNotification(
+                'Nova Notícia',
+                `Nova notícia "${dadosNoticia.titulo}" foi adicionada e aguarda aprovação.`,
+                'info'
+            );
+        }
         
         alert('Notícia adicionada com sucesso!');
     }
@@ -603,6 +630,15 @@ class AdminSystem {
             propaganda.status = 'ativa';
             propaganda.aprovado = true;
             propaganda.dataAprovacao = new Date().toISOString();
+            
+            // Adicionar notificação
+            if (window.notificationSystem) {
+                window.notificationSystem.addNotification(
+                    'Propaganda Aprovada',
+                    `A propaganda "${propaganda.empresa}" foi aprovada e está ativa.`,
+                    'success'
+                );
+            }
             
             localStorage.setItem('radioAloVoce_propagandas', JSON.stringify(propagandas));
             this.loadPropagandas();
@@ -639,6 +675,15 @@ class AdminSystem {
         if (noticia) {
             noticia.status = 'aprovada';
             noticia.dataAprovacao = new Date().toISOString();
+            
+            // Adicionar notificação
+            if (window.notificationSystem) {
+                window.notificationSystem.addNotification(
+                    'Notícia Aprovada',
+                    `A notícia "${noticia.titulo}" foi aprovada e publicada.`,
+                    'success'
+                );
+            }
             
             localStorage.setItem('radioAloVoce_noticias', JSON.stringify(noticias));
             this.loadNoticias();
@@ -1460,6 +1505,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (eventosAdmin) {
                 eventosAdmin.addEvento(dadosEvento);
+            }
+            
+            // Adicionar notificação
+            if (window.notificationSystem) {
+                window.notificationSystem.addNotification(
+                    'Novo Evento',
+                    `O evento "${dadosEvento.titulo}" foi adicionado ao calendário.`,
+                    'success'
+                );
             }
             
             eventoForm.reset();

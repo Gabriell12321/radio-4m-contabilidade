@@ -5659,7 +5659,7 @@
         
         <div class="vendas-container">
             <!-- Título Elegante -->
-            <div class="vendas-title">
+            <div class="vendas-title" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                 <div class="title-decoration">
                     <div class="title-line"></div>
                     <div class="title-icon-wrapper">
@@ -7774,6 +7774,9 @@
 📊 Status: ${isPlaying ? '🔴 AO VIVO' : '⏸️ PAUSADO'}
 🔗 Volume: ${Math.round(currentVolume * 100)}%
 📈 Qualidade: Alta
+```
+</script>
+</rewritten_file>
 ⚡ URL: ${audioPlayer ? audioPlayer.src : 'N/A'}
             `;
             alert(infoMessage);
