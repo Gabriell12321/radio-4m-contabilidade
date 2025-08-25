@@ -1,42 +1,72 @@
-# Rádio Alo Voce - Sistema Administrativo
+# Rádio Alo Voce - Sistema Completo
 
-Sistema de administração completo para a Rádio Alo Voce com funcionalidades avançadas de gerenciamento de conteúdo, eventos, vendas e muito mais.
+Sistema completo para rádio online com funcionalidades avançadas de administração, gerenciamento de conteúdo, eventos, vagas de emprego e muito mais.
 
 ## 🎯 Visão Geral
 
-Este projeto é um painel administrativo moderno e completo para gerenciar uma rádio online, com foco na Rádio Alo Voce. O sistema oferece uma interface intuitiva e elegante para administradores gerenciarem todos os aspectos da rádio.
+Este projeto é um sistema completo para uma rádio online chamada "Rádio Alo Voce", composto por múltiplos componentes integrados:
 
-## 🚀 Funcionalidades Principais
+1. **Painel Administrativo** - Interface moderna para gerenciamento completo
+2. **Site da Rádio** - Player de música com integração Spotify
+3. **Portal de Empresas** - Sistema para anunciantes e parceiros
+4. **Sistema de Login** - Autenticação segura para administradores
 
-### Dashboard Administrativo
-- Visão geral em tempo real das métricas da rádio
-- Estatísticas de audiência e receita
-- Gráficos interativos de desempenho
-- Atividades recentes
+## 🚀 Componentes do Sistema
 
-### Gerenciamento de Conteúdo
-- **Propagandas**: Cadastro, aprovação e controle de anúncios
-- **Notícias**: Publicação de notícias patrocinadas
-- **Eventos**: Agenda completa de eventos da cidade
-- **Falecimentos**: Notas de falecimento e condolências
-- **Vagas de Emprego**: Sistema de oportunidades de trabalho
-- **Mural de Vendas**: Classificados de produtos e serviços
-- **Promoções**: Ofertas e descontos das empresas locais
-- **Recados**: Mensagens dos ouvintes
-
-### Sistema de Usuários
-- Autenticação segura
-- Perfis de administradores
-- Controle de permissões
-- Histórico de atividades
-
-### Design e Experiência
+### 1. Painel Administrativo (`admin.html`)
 - Interface moderna com tema claro/escuro
-- Design responsivo para todos os dispositivos
-- Microinterações e animações suaves
-- Sistema de notificações em tempo real
+- Dashboard com estatísticas em tempo real
+- Gerenciamento de:
+  - Propagandas
+  - Notícias
+  - Eventos
+  - Falecimentos
+  - Vagas de Emprego
+  - Mural de Vendas
+  - Promoções
+  - Recados
 
-## 🎨 Características Técnicas
+### 2. Site da Rádio (`radio.html`)
+- Player de música com integração Spotify
+- Anúncios dinâmicos
+- Sistema de eventos
+- Notícias e promoções
+- Recados dos ouvintes
+
+### 3. Portal de Empresas (`empresas.html`)
+- Sistema para anunciantes
+- Cadastro de vagas
+- Promoções e eventos
+- Contato com a rádio
+
+### 4. Sistema de Login (`login.html`)
+- Autenticação segura
+- Sessões persistentes
+- Recuperação de senha
+
+## 📁 Estrutura do Projeto
+
+```
+radio-4m-contabilidade/
+├── admin.html                 # Painel administrativo principal
+├── admin-sistema.js           # Lógica do sistema administrativo
+├── radio.html                 # Site principal da rádio
+├── empresas.html              # Portal para empresas
+├── login.html                 # Página de autenticação
+├── eventos-system.js          # Sistema de eventos
+├── promocoes-system.js        # Sistema de promoções
+├── vagas-system.js            # Sistema de vagas de emprego
+├── vendas-system.js           # Sistema de vendas/classificados
+├── recados-system.js          # Sistema de recados
+├── turismo-system.js          # Sistema de turismo
+├── radio-anuncios-dinamicos.js # Sistema de anúncios dinâmicos
+├── backup.bat                 # Script de backup
+├── backup.ps1                 # Script de backup PowerShell
+├── logosemfundo.png           # Logo da rádio
+└── *.md                       # Documentação
+```
+
+## 🎨 Recursos Técnicos
 
 ### Frontend
 - HTML5 semântico
@@ -51,62 +81,62 @@ Este projeto é um painel administrativo moderno e completo para gerenciar uma r
 - Sistema de sessão
 - Dados persistentes no navegador
 
-### Recursos Avançados
+### Funcionalidades Avançadas
 - Modo claro/escuro
 - Sistema de busca em tempo real
 - Filtros e ordenação
 - Modais elegantes
 - Sistema de notificações toast
 - Backup de dados
-
-## 📁 Estrutura do Projeto
-
-```
-radio-4m-contabilidade/
-├── admin.html          # Painel administrativo principal
-├── admin-sistema.js    # Lógica do sistema administrativo
-├── login.html          # Página de autenticação
-├── radio.html          # Página principal da rádio
-├── empresas.html       # Sistema de empresas
-└── assets/             # Recursos (imagens, ícones, etc.)
-```
+- Sincronização automática
 
 ## 🛠️ Como Usar
 
-1. **Acesso ao Admin**: Abra `admin.html` no seu navegador
-2. **Login**: Use as credenciais padrão (administrador)
-3. **Navegação**: Utilize o menu lateral para acessar as seções
-4. **Gerenciamento**: Adicione, edite e gerencie conteúdo através dos formulários
+### Acesso ao Sistema
+1. **Painel Admin**: `admin.html` (usuário: admin, senha: admin)
+2. **Site da Rádio**: `radio.html`
+3. **Portal Empresas**: `empresas.html`
+4. **Login Admin**: `login.html`
 
-## 🎯 Seções do Painel
+### Funcionalidades Principais
 
-### Dashboard
-- Visão geral das métricas
-- Gráficos de audiência
-- Estatísticas financeiras
+#### Dashboard Administrativo
+- Visão geral das métricas da rádio
+- Gráficos de audiência e receita
 - Atividades recentes
+- Estatísticas em tempo real
 
-### Propagandas
-- Lista de anúncios ativos
-- Formulário de cadastro
-- Aprovação/rejeição
-- Edição de conteúdo
+#### Gerenciamento de Conteúdo
+- **Propagandas**: Cadastro, aprovação e controle de anúncios
+- **Notícias**: Publicação de notícias patrocinadas
+- **Eventos**: Agenda completa de eventos da cidade
+- **Falecimentos**: Notas de falecimento e condolências
+- **Vagas**: Sistema de oportunidades de trabalho
+- **Vendas**: Classificados de produtos e serviços
+- **Promoções**: Ofertas e descontos das empresas
+- **Recados**: Mensagens dos ouvintes
 
-### Notícias
-- Gerenciamento de notícias patrocinadas
-- Status de aprovação
-- Publicação programada
+#### Sistema de Usuários
+- Autenticação segura
+- Perfis de administradores
+- Controle de permissões
+- Histórico de atividades
 
-### Eventos
-- Agenda de eventos da cidade
-- Destaque de eventos importantes
-- Informações detalhadas
+## 📱 Design e Experiência
 
-### Comunidade
-- Vagas de emprego
-- Mural de vendas
-- Recados dos ouvintes
-- Promoções locais
+### Interface Moderna
+- Tema claro/escuro adaptável
+- Microinterações e animações suaves
+- Design responsivo para todos os dispositivos
+- Sistema de notificações em tempo real
+
+### Componentes Visuais
+- Cards interativos com hover effects
+- Gráficos animados
+- Tabelas modernizadas
+- Modais elegantes
+- Badges de status
+- Botões com feedback visual
 
 ## 🔧 Personalização
 
@@ -119,20 +149,6 @@ radio-4m-contabilidade/
 - Perfil de administrador
 - Preferências de sistema
 - Backup de dados
-
-## 📱 Responsividade
-
-- Design mobile-first
-- Layout adaptável
-- Touch-friendly
-- Performance otimizada
-
-## 🔒 Segurança
-
-- Sistema de autenticação
-- Sessões persistentes
-- Validação de dados
-- Proteção XSS básica
 
 ## 📈 Melhorias Recentes
 
@@ -152,7 +168,6 @@ radio-4m-contabilidade/
 - Código otimizado
 - Carregamento rápido
 - Cache eficiente
-- Minimização de requisições
 
 ## 🎯 Próximos Passos
 
