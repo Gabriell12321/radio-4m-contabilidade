@@ -1,79 +1,187 @@
-# Radio 4M Contabilidade
+# Rádio Alo Voce - Sistema Administrativo
 
-Sistema de rádio web completo com funcionalidades administrativas, sistema de empresas, vagas de emprego, eventos e muito mais.
+Sistema de administração completo para a Rádio Alo Voce com funcionalidades avançadas de gerenciamento de conteúdo, eventos, vendas e muito mais.
 
-## 🎵 Funcionalidades Principais
+## 🎯 Visão Geral
 
-### Sistema de Rádio
-- Player de música com integração Spotify
-- Anúncios dinâmicos
-- Sistema de stream robusto
-- Controle de volume e equalização
+Este projeto é um painel administrativo moderno e completo para gerenciar uma rádio online, com foco na Rádio Alo Voce. O sistema oferece uma interface intuitiva e elegante para administradores gerenciarem todos os aspectos da rádio.
 
-### Painel Administrativo
-- Login seguro para administradores
-- Dashboard com estatísticas
-- Gerenciamento de conteúdo
-- Sistema de perfil administrativo
+## 🚀 Funcionalidades Principais
 
-### Sistema de Empresas
-- Cadastro e gerenciamento de empresas
-- Sistema de vagas de emprego
-- Promoções e eventos
-- Recados e comunicações
+### Dashboard Administrativo
+- Visão geral em tempo real das métricas da rádio
+- Estatísticas de audiência e receita
+- Gráficos interativos de desempenho
+- Atividades recentes
 
-### Funcionalidades Especiais
-- Sincronização de eventos
-- Sistema de turismo
-- Vendas integradas
-- Interface responsiva
+### Gerenciamento de Conteúdo
+- **Propagandas**: Cadastro, aprovação e controle de anúncios
+- **Notícias**: Publicação de notícias patrocinadas
+- **Eventos**: Agenda completa de eventos da cidade
+- **Falecimentos**: Notas de falecimento e condolências
+- **Vagas de Emprego**: Sistema de oportunidades de trabalho
+- **Mural de Vendas**: Classificados de produtos e serviços
+- **Promoções**: Ofertas e descontos das empresas locais
+- **Recados**: Mensagens dos ouvintes
 
-## 🚀 Como Usar
+### Sistema de Usuários
+- Autenticação segura
+- Perfis de administradores
+- Controle de permissões
+- Histórico de atividades
 
-1. **Acesse o sistema**: Abra `radio.html` no seu navegador
-2. **Painel Admin**: Acesse `admin.html` para gerenciar o sistema
-3. **Sistema de Empresas**: Use `empresas.html` para gerenciar empresas
+### Design e Experiência
+- Interface moderna com tema claro/escuro
+- Design responsivo para todos os dispositivos
+- Microinterações e animações suaves
+- Sistema de notificações em tempo real
+
+## 🎨 Características Técnicas
+
+### Frontend
+- HTML5 semântico
+- CSS3 com variáveis e animações
+- JavaScript ES6+ (sem frameworks)
+- Design responsivo mobile-first
+- Ícones Font Awesome
+- Gráficos Chart.js
+
+### Backend (Simulado)
+- Armazenamento em localStorage
+- Sistema de sessão
+- Dados persistentes no navegador
+
+### Recursos Avançados
+- Modo claro/escuro
+- Sistema de busca em tempo real
+- Filtros e ordenação
+- Modais elegantes
+- Sistema de notificações toast
+- Backup de dados
 
 ## 📁 Estrutura do Projeto
 
 ```
-Radio 4m contabilidade/
-├── radio.html              # Página principal da rádio
-├── admin.html              # Painel administrativo
-├── empresas.html           # Sistema de empresas
-├── login.html              # Página de login
-├── *.js                    # Scripts JavaScript
-├── *.css                   # Arquivos de estilo
-└── *.md                    # Documentação
+radio-4m-contabilidade/
+├── admin.html          # Painel administrativo principal
+├── admin-sistema.js    # Lógica do sistema administrativo
+├── login.html          # Página de autenticação
+├── radio.html          # Página principal da rádio
+├── empresas.html       # Sistema de empresas
+└── assets/             # Recursos (imagens, ícones, etc.)
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Como Usar
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- Integração com APIs externas
+1. **Acesso ao Admin**: Abra `admin.html` no seu navegador
+2. **Login**: Use as credenciais padrão (administrador)
+3. **Navegação**: Utilize o menu lateral para acessar as seções
+4. **Gerenciamento**: Adicione, edite e gerencie conteúdo através dos formulários
 
-## 📋 Requisitos
+## 🎯 Seções do Painel
 
-- Navegador web moderno
-- Conexão com internet (para stream de música)
-- Acesso ao Spotify (para funcionalidades premium)
+### Dashboard
+- Visão geral das métricas
+- Gráficos de audiência
+- Estatísticas financeiras
+- Atividades recentes
 
-## 🔧 Configuração
+### Propagandas
+- Lista de anúncios ativos
+- Formulário de cadastro
+- Aprovação/rejeição
+- Edição de conteúdo
 
-1. Clone este repositório
-2. Abra os arquivos HTML no seu navegador
-3. Configure as credenciais necessárias nos arquivos JavaScript
+### Notícias
+- Gerenciamento de notícias patrocinadas
+- Status de aprovação
+- Publicação programada
+
+### Eventos
+- Agenda de eventos da cidade
+- Destaque de eventos importantes
+- Informações detalhadas
+
+### Comunidade
+- Vagas de emprego
+- Mural de vendas
+- Recados dos ouvintes
+- Promoções locais
+
+## 🔧 Personalização
+
+### Tema
+- Toggle claro/escuro no header
+- Cores personalizadas em CSS
+- Fontes otimizadas
+
+### Configurações
+- Perfil de administrador
+- Preferências de sistema
+- Backup de dados
+
+## 📱 Responsividade
+
+- Design mobile-first
+- Layout adaptável
+- Touch-friendly
+- Performance otimizada
+
+## 🔒 Segurança
+
+- Sistema de autenticação
+- Sessões persistentes
+- Validação de dados
+- Proteção XSS básica
+
+## 📈 Melhorias Recentes
+
+### Interface
+- Design moderno com gradientes
+- Animações suaves e microinterações
+- Sistema de notificações melhorado
+- Gráficos interativos
+
+### Funcionalidades
+- Busca em tempo real
+- Filtros avançados
+- Sistema de backup
+- Sincronização automática
+
+### Performance
+- Código otimizado
+- Carregamento rápido
+- Cache eficiente
+- Minimização de requisições
+
+## 🎯 Próximos Passos
+
+### Fase 1 - Funcionalidades
+- Drag & Drop para uploads
+- Filtros avançados nas tabelas
+- Exportar dados (PDF/Excel)
+- Dashboard customizável
+
+### Fase 2 - Visual
+- Mais animações (Framer Motion style)
+- Gradientes animados
+- Parallax effects
+- 3D transforms em cards
+
+### Fase 3 - Features
+- Real-time updates via WebSocket
+- PWA - Funcionar offline
+- Multi-idioma
+- Atalhos de teclado
 
 ## 📞 Suporte
 
-Para suporte técnico ou dúvidas sobre o sistema, consulte a documentação nos arquivos `.md` do projeto.
+Para suporte técnico ou dúvidas sobre o sistema, entre em contato com a equipe de desenvolvimento.
 
 ## 📄 Licença
 
-Este projeto é de uso interno da Radio 4M Contabilidade.
+Este projeto é de uso interno da Rádio Alo Voce.
 
 ---
 
-**Desenvolvido para Radio 4M Contabilidade** 🎵 
+**Desenvolvido com ❤️ para Rádio Alo Voce** 🎵
