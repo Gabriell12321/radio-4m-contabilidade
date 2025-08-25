@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rádio Alo Voce - Servidor Local</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1db954;
+            text-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.4);
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .link-button {
+            display: block;
+            padding: 15px 30px;
+            background: rgba(29, 185, 84, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(29, 185, 84, 0.5);
+        }
+        
+        .link-button:hover {
+            background: rgba(29, 185, 84, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(29, 185, 84, 0.3);
+        }
+        
+        .info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .ip-address {
+            color: #1db954;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎵</div>
+        <h1>Rádio Alo Voce</h1>
+        <p>Servidor local configurado com sucesso!</p>
+        
+        <div class="links">
+            <a href="pages/radio.html" class="link-button">📻 Acessar Rádio</a>
+            <a href="pages/admin.html" class="link-button">⚙️ Painel Administrativo</a>
+            <a href="pages/empresas.html" class="link-button">🏢 Portal de Empresas</a>
+            <a href="pages/login.html" class="link-button">🔐 Área de Login</a>
+        </div>
+        
+        <div class="info">
+            <p>Para acessar este servidor em outros dispositivos na mesma rede, use:</p>
+            <p class="ip-address">http://SEU_IP_LOCAL:8000</p>
+            <p>Substitua "SEU_IP_LOCAL" pelo endereço IP mostrado no console do servidor</p>
+        </div>
+    </div>
+</body>
+</html>
